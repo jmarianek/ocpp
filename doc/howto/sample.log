@@ -1,0 +1,6 @@
+$ tail -f ~/local/tomcat7.0/logs/catalina.out 
+2020-03-14 12:17:05,804 INFO  axis2server.CentralSystemServiceSkeleton - bootNotification(EVB100, Chago) from 10.0.0.50
+2020-03-14 12:17:06,039 INFO  axis2server.CentralSystemServiceSkeleton - statusNotification(0, NoError, Available) from 10.0.0.50
+2020-03-14 12:17:06,159 INFO  axis2server.CentralSystemServiceSkeleton - statusNotification(1, NoError, Available) from 10.0.0.50
+2020-03-14 12:17:06,314 INFO  axis2server.CentralSystemServiceSkeleton - startTransaction(1, 2b06f253, 0, 2020-03-06T20:22:02Z) from 10.0.0.50
+

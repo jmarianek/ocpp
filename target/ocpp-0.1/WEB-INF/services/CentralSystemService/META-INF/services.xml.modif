@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.5.3  Built on : Nov 12, 2010 (02:24:07 CET) -->
+<serviceGroup>
+    <service name="CentralSystemService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="axis2server.CentralSystemServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">axis2server.CentralSystemServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">false</parameter>
+        <parameter name="modifyUserWSDLPortAddress">false</parameter>
+        <operation name="StopTransaction" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/StopTransaction</actionMapping>
+            <outputActionMapping>/StopTransactionResponse</outputActionMapping>
+        </operation>
+        <operation name="StatusNotification" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/StatusNotification</actionMapping>
+            <outputActionMapping>/StatusNotificationResponse</outputActionMapping>
+        </operation>
+        <operation name="Authorize" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/Authorize</actionMapping>
+            <outputActionMapping>/AuthorizeResponse</outputActionMapping>
+        </operation>
+        <operation name="StartTransaction" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/StartTransaction</actionMapping>
+            <outputActionMapping>/StartTransactionResponse</outputActionMapping>
+        </operation>
+        <operation name="FirmwareStatusNotification" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/FirmwareStatusNotification</actionMapping>
+            <outputActionMapping>/FirmwareStatusNotificationResponse</outputActionMapping>
+        </operation>
+        <operation name="BootNotification" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/BootNotification</actionMapping>
+            <outputActionMapping>/BootNotificationResponse</outputActionMapping>
+        </operation>
+        <operation name="Heartbeat" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/Heartbeat</actionMapping>
+            <outputActionMapping>/HeartbeatResponse</outputActionMapping>
+        </operation>
+        <operation name="MeterValues" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/MeterValues</actionMapping>
+            <outputActionMapping>/MeterValuesResponse</outputActionMapping>
+        </operation>
+        <operation name="DataTransfer" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/DataTransfer</actionMapping>
+            <outputActionMapping>/DataTransferResponse</outputActionMapping>
+        </operation>
+        <operation name="DiagnosticsStatusNotification" mep="http://www.w3.org/ns/wsdl/in-out" namespace="urn://Ocpp/Cs/2015/10/">
+            <actionMapping>/DiagnosticsStatusNotification</actionMapping>
+            <outputActionMapping>/DiagnosticsStatusNotificationResponse</outputActionMapping>
+        </operation>
+        -->
+    </service>
+</serviceGroup>

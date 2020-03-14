@@ -1,0 +1,14 @@
+$ ~/local/axis2-1.5.3/bin/wsdl2java.sh -uri OCPP_CentralSystemService_1.6.wsdl -ss -sd -d adb -p axis2server -s
+
+jinak:
+$ ~/local/axis2-1.5.3/bin/wsdl2java.sh -uri OCPP_CentralSystemService_1.6.wsdl -ss -sd -d xmlbeans -p axis2server -s
+
+
+
+
+
+$ ant
+Buildfile: build.xml
+...
+
+$ cd build/lib/

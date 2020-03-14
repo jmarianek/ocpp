@@ -1,0 +1,243 @@
+Od:	Josef Mariánek <josef.mariaanek@gmail.com>
+Komu:	Mader Dan <Dan.Mader@ensto.com>
+Kopie:	Tomas Kletzander <tomas.kletzander@gmail.com>
+Předmět:	Re: návod
+Datum:	Sat, 14 Mar 2020 17:00:56 +0100
+
+	obrázek PNG příloha (ocpp_gui_dev.png)
+	kód SQL příloha (create_ocpp.sql)
+	obrázek PNG příloha (ocpp_gui_about.png)
+	záznam aplikace příloha (sample.log)
+	obrázek PNG příloha (ocpp_tomcat_log.png)
+	obrázek PNG příloha (charger_web_admin.png)
+	obrázek PNG příloha (ocpp_firewall.png)
+	obrázek PNG příloha (ocpp_gui_home.png)
+
+Ahoj,
+
+ok, je to tam nastaveno.
+Dam vecer na github v1 vc. dokumentace.
+Umi to zhruba viz prilohy.
+---
+Tome muzes pokracovat timto:
+
+1. zarizeni
+Trida gui.dev.Devices. Namountovano na 
+http://localhost:8080/ocpp-0.1/app/dev
+Jsou videt spravovana zarizeni.
+Muzes si udelat jinou tridu ktera vrati tyreba JSON.
+
+2. transakce
+Obslehni kod Devices.
+
+3. klient nabijecky
+Jde o reset, odemknuti zasuvky atr.
+Zatim prazdny v axis2client.
+
+4. OCPP server
+Trida axis2server.
+Jen tam persistence jen pro bootNotification, zbytek potreba dodelat.
+Hlavne zatim nechodi stopTransaction.
+
+Dale DB file mam nastaveny na 
+/home/marianek/local/tomcat7.0/webapps/db/ocpp.db
+Menit v IndexSession a v CentralSystemServiceSkeleton (zatim je to bohuzel na 2
+mistech).
+Muzes si tam pro potreby ladeni vkladat nejaka data pres radkoveho sqlite3
+klienta.
+
+Ja se tomu ted nejakou dobu nebudu moct venovat.
+
+Dane mam aktualne neco pres 20h.
+
+Pepa
+
+
+
+-------- Původní zpráva --------
+Od: Mader Dan <Dan.Mader@ensto.com>
+Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+Předmět: Re: návod
+Datum: Sat, 14 Mar 2020 09:13:43 +0000
+
+Ahoj,
+Copyright Ensto CZECH, 
+Mam tu ten merak, co simuluje auto...
+
+
+Hezký den, Dan Mader
+
+
+
+
+> 14. 3. 2020 v 9:54, Josef Mariánek <josef.mariaanek@gmail.com>:
+> 
+> ﻿Ahoj Dane,
+> 
+> pokusim se dnes to predat Tomovi pres github.
+> Jeste poslu jeden email.
+> Bude tam i zaklad GUI - home page, seznam prip. zarizeni a jejich transakci.
+> Dale je k dispozici log tomcat, kde je videt SOAP komunikace.
+> ---
+> Prosim Te co mam napsat do copytight? Tebe nebo Ensto?
+> 
+> Pepa
+> 
+> -------- Původní zpráva --------
+> Od: Josef Mariánek <josef.mariaanek@gmail.com>
+> Komu: Mader Dan <Dan.Mader@ensto.com>
+> Předmět: Re: návod
+> Datum: Thu, 12 Mar 2020 09:07:17 +0100
+> 
+> Ahoj Dane,
+> 
+> ok, Tomovi se ozvu sam. Kdyztak vecer zavolame.
+> Ad 1. nabijelo to (UPS prestala bzucet), ale porad poblikavalo modre, tj. ne
+> trvale modre,
+> ad 2. Po odhlaseni zelena.
+> Autorizace mozna prisla pri prvnim startTransaction 6.3., ale to nevim. Ted uz
+> nechodi.
+> 
+> Pepa
+> 
+> -------- Původní zpráva --------
+> Od: Mader Dan <Dan.Mader@ensto.com>
+> Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> Předmět: RE: návod
+> Datum: Thu, 12 Mar 2020 06:24:05 +0000
+> 
+> Ahoj,
+> Kontakt na Toma Kletzandra: 777559397
+> Ad 1. to znamená, že to přestalo modře blikat a začlo svítit trvale?
+> Ad 2., jak t svítilo po rfid odhlášení?
+> Při prvním použití rfid přijde autorizace? (při druhém  nemusí, ale může přijít
+> ta stopka)
+> 
+> Zkusím se na to taky dnes mrknout.
+> Nestavím se, jsem v karanténě. (lyžoval jsem v itálii)
+> Můžeme skypovat, telefonovat, mailovat...
+> Ozvu se,
+> Dan
+> 
+> 
+> -----Original Message-----
+> From: Josef Mariánek <josef.mariaanek@gmail.com> 
+> Sent: Wednesday, March 11, 2020 11:25 PM
+> To: Mader Dan <Dan.Mader@ensto.com>
+> Subject: Re: návod
+> 
+> Ahoj Dane,
+> 
+> ad 1. zkusil jsem a nabiji se to, posle to odpovidajici status notifikaci, ad 2. rfid to ukonci a jde vytahnout kabel, ale neposle se stop transaction.
+> 
+> Je potreba prolomit to ukonceni transakce, aby se poslalo s konecnym stavem meridla. Autorizace to taky neposila.
+> Horsi je ze ja jsem ted po zavreni skol totalne zasekanej v projektech pro skolstvi (delam pro jedno nakladatelstvi SW pro online ucebnice).
+> 
+> Nejlip kdybych do toho mohl vtahnout Toma, pry nema do ceho pichnout. Sice pise spis pro android, ale jelikoz umi javu tak to urcite zvladne. Nemam na nej kontakt (email ani tel.).
+> Nahral bych to na github a mohl by na tom delat se mnou.
+> Nechcete se zitra pred pivem stavit tak na pul hodiny na kratkou poradu? Treba tak v 19h? Nebo to muzem prenest k Tobe. Musel bys to ale zorganizovat.
+> 
+> Jinak ja na tom mam zatim viz vykaz v priloze necelych 20h.
+> 
+> Pepa
+> 
+> 
+> -------- Původní zpráva --------
+> Od: Mader Dan <Dan.Mader@ensto.com>
+> Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> Předmět: RE: návod
+> Datum: Wed, 11 Mar 2020 20:16:22 +0000
+> 
+> Ahoj,
+> Zkus 2 věci:
+> 1. přepnut přepínač na modulu s káblem. Ten by měl zahájit nabíjení.
+> 2. rfid by to mělo ukončit.
+> 
+> Jinak můžeš taky poslat ten request, nebo taky dálkovej reset, dálkový odpojení.
+> To vše potřebujeme vyzkoušet.
+> Dan
+> 
+> 
+> -----Original Message-----
+> From: Josef Mariánek <josef.mariaanek@gmail.com>
+> Sent: Wednesday, March 11, 2020 7:18 PM
+> To: Mader Dan <Dan.Mader@ensto.com>
+> Subject: Re: návod
+> 
+> ...mozna bude potreba te krabici poslat remoteStopTransactionRequest?
+> 
+> Pepa
+> 
+> -------- Původní zpráva --------
+> Od: Josef Mariánek <josef.mariaanek@gmail.com>
+> Komu: Mader Dan <Dan.Mader@ensto.com>
+> Předmět: Re: návod
+> Datum: Wed, 11 Mar 2020 18:53:16 +0100
+> 
+> Ahoj Dane,
+> 
+> dival jsem se do toho navodu.
+> Free charging je v krabici vypnute a presto to autorizaci neposila.
+> Divne je ze ted uz se to ani nedostane do stavu CONNECTED, coz se mne uz driv podarilo. Provede to dle logu
+> 
+> 2020-03-11 18:47:56,854 INFO  axis2server.CentralSystemServiceSkeleton - bootNotification(EVB100, Chago) from 10.0.0.50
+> 2020-03-11 18:47:57,594 INFO  axis2server.CentralSystemServiceSkeleton - statusNotification(0, NoError, Available) from 10.0.0.50
+> 2020-03-11 18:47:57,862 INFO  axis2server.CentralSystemServiceSkeleton - statusNotification(1, NoError, Available) from 10.0.0.50
+> 2020-03-11 18:47:58,045 INFO  axis2server.CentralSystemServiceSkeleton - startTransaction(1, 2b06f253, 0, 2020-03-06T20:22:02Z) from 10.0.0.50
+> 
+> a to se porad opakuje. Tj. chce to pokracovat v transakci z 6.3.2020, kterou prave nevim jak zastavit...
+> 
+> Dalsi vec je ze nefunguje toto:
+> 
+> - Plug in the electric vehicle for charging. The indicator light turns to stable blue.
+> 
+> Misto toho pri nabijeni to porad modre blika (zesiluje a zeslabuje modra), tj.
+> mozna to chce skutecne auto a ta UPS se nedetekuje jako vehicle k nabijeni...
+> 
+> Asi to bude chtit dat hlavy dohromady a zjistit, proc to neposila authorize a proc nefunguje stopTransaction(). Mozna je to v konfiguraci te krabice, mozna te krabici neco neposilam...
+> 
+> Pepa
+> 
+> 
+> -------- Původní zpráva --------
+> Od: Josef Mariánek <josef.mariaanek@gmail.com>
+> Komu: Mader Dan <Dan.Mader@ensto.com>
+> Předmět: Re: návod
+> Datum: Wed, 11 Mar 2020 13:28:59 +0100
+> 
+> Ahoj Dane,
+> 
+> ok, podivam se na to, ale nejdriv zitra.
+> Delam i na SW pro skoly (elektronicke ucebnice) a jsou tam ted problemy.
+> 
+> Pepa
+> 
+> -------- Původní zpráva --------
+> Od: Mader Dan <Dan.Mader@ensto.com>
+> Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> Předmět: návod
+> Datum: Wed, 11 Mar 2020 12:08:45 +0000
+> 
+> Ahoj Pepo,
+> Teď jsem objevil hezkej návod. A je hned na začátku jasný, že pokud ne nastaveno FREE chargé, tak se to backendu neptá na autorizaci...
+> Dan
+> 
+> [/Users/satuhanninen/Documents/Duunit_Stui2/ENSTO/ENSTO_2017/ Aineistot/Lomakkeet/ensto.png]
+> 
+> Dan Mader
+> Sales Manager
+> Ensto Utility Networks
+> 
+> mobile +420 602 109 917
+> dan.mader@ensto.com<mailto:dan.mader@ensto.com>
+> 
+> Ensto Czech s.r.o.
+> Komerční zóna Čestlice
+> Obchodní 107
+> 251 01 Praha - východ, CZ
+> tel. +420 272 680 124 / 125, +420 546 422 371 (Brno office) www.ensto.com<http://www.ensto.com/>;;;;;;;
+> 
+> [id:image002.png@01D2862A.956CF560]<https://www.facebook.com/EnstoGroup/>[id:image003.png@01D2862A.956CF560]<https://www.linkedin.com/company/ensto>[id:image004.png@01D2862A.956CF560]<https://twitter.com/EnstoGroup>[id:image005.png@01D2862A.956CF560]<https://www.youtube.com/user/EnstoGroup>
+> 
+> 
+> 

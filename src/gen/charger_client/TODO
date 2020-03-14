@@ -1,0 +1,23 @@
+$ /home/marianek/local/axis2-1.5.3/bin/wsdl2java.sh -uri OCPP_ChargePointService_1.6.wsdl -p axis2client -d adb -s
+ Using AXIS2_HOME:   /home/marianek/local/axis2-1.5.3
+ Using JAVA_HOME:       /opt/jdk1.8.0_172
+Retrieving document at 'OCPP_ChargePointService_1.6.wsdl'.
+
+$ ant
+Buildfile: build.xml
+...
+
+$ cd build/lib/
+
+$ ll
+celkem 284
+-rwxrw-r-- 1 marianek marianek     82 10. led 23.24 call.sh
+-rwxrw-r-- 1 marianek marianek   3872 10. led 23.23 cp.sh
+-rw-rw-r-- 1 marianek marianek 282479 10. led 23.33 ...-test-client.jar
+
+$ ./call.sh
+Client's IP = 127.0.0.1
+
+Server's IP = 127.0.0.1
+
+...
