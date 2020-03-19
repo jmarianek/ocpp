@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head>
+<meta charset="utf-8">
+<title>OCPP Web Server</title>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"/>
+  
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+
+<style>
+button {
+    border-radius: 12px;
+    padding: 14px 40px;
+    font-size: 1.5em;
+    background-color: #008CBA;
+}
+</style>
+
+<script>
+
+function notImpl()
+{
+	alert("Není implementováno.");
+}
+
+$(document).ready(function() {
+    //console.log( "ready!" );
+    $("table").DataTable();
+});
+
+</script>
+</head>
+
+<body>
+<h1>OCPP Web Server</h1>
+
+<div style="margin: 1em">
+<a wicket:id="back" href="#">&lt;&nbsp;Zpět</a>
+</div>
+
+<h2>Transakce</h2>
+<span wicket:id="transList">[trans list]</span>
+
+</body>
+</html>
+
