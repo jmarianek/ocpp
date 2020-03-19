@@ -7,6 +7,8 @@ package gui.index;
  * 
  * Chagelog:
  * 2020-03-14 - jmarianek - vychozi verze;
+ * 2020-03-19 - jmarianek - cteni cesty k DB pres envvar OCPP_DB_FILE (priorita);
+ * 
  */
 
 
@@ -30,8 +32,16 @@ public final class IndexSession extends WebSession
 
 
     
-    public String getDB_FILE() {
-        return DB_FILE;
+    public String getDB_FILE()
+    {
+        String dbFile = null;
+        try {
+            dbFile = System.getenv("OCPP_DB_FILE");
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return (dbFile != null ? dbFile : DB_FILE);
     }
 
 

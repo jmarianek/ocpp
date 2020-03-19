@@ -2,7 +2,7 @@
  * create_ocpp.sql
  * Zakladaci skript ocpp.db pro aplikaci OCPP Web Server.
  * Umisteni viz gui.index.IndexSession.java,
- * resp. env_var DB_FILE (priorita).
+ * resp. env_var OCPP_DB_FILE (priorita).
  *
  * 2020-03-14 - jmarianek - v1 - dev
  * 2020-03-19 - jmarianek - trans;

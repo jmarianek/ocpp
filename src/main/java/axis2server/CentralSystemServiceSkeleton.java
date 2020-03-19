@@ -22,6 +22,8 @@ import java.sql.Statement;
  *                        - startTransaction();
  *                        - stopTransaction();
  * 2020-03-14 - jmarianek - persistence bootNotification;
+ * 2020-03-19 - jmarianek - getDB_FILE();
+ *                        - oprava update zazn. v bootNotifivation();
  * 
  *                        TODO: persistence vsech zprav
  *                        TODO: odsranit dupl. def DB_FILE (viz IndexSession
@@ -66,7 +68,18 @@ public class CentralSystemServiceSkeleton {
      */
     private final String DB_FILE =
         "/home/marianek/local/tomcat7.0/webapps/db/ocpp.db";
-    
+
+    private String getDB_FILE()
+    {
+        String dbFile = null;
+        try {
+            dbFile = System.getenv("OCPP_DB_FILE");
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return (dbFile != null ? dbFile : DB_FILE);
+    }
     
     /**
      * Ziskani IP adresy klienta z AXIS2 MessageContext.
@@ -268,15 +281,16 @@ public class CentralSystemServiceSkeleton {
             // load the sqlite-JDBC driver using the current class loader
             Class.forName("org.sqlite.JDBC");
             // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:" + DB_FILE);
+            connection = DriverManager.getConnection("jdbc:sqlite:" + getDB_FILE());
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30); // set timeout to 30 sec.
             
-            // TODO - ON CONFLICT zda se nefunguje
             statement.executeUpdate(
-                "insert into dev(ip, model, vendor, status)\n"
-                + "values ('" + ipAddr + "', '" + model + "', '" + vendor + "', 'boot')"
-                + "ON CONFLICT DO UPDATE SET status='boot'" // trigger nast. updated_on
+                "insert or ignore into dev(ip, model, vendor, status)\n"
+                + "values ('" + ipAddr + "', '" + model + "', '" + vendor + "', 'boot');"
+            );
+            statement.executeUpdate(
+                "update dev set status = 'boot' where ip = '" + ipAddr + "');"
             );
 
         } catch (Exception e) {
