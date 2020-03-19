@@ -66,9 +66,10 @@ public class Trans extends WebPage
         };
         add(back);
         
+        System.out.println("par:" + par);
         Integer devId = null;
         try {
-            par.getInt("dev_id");
+            devId = par.getInt("dev_id");
         } catch (StringValueConversionException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -114,13 +115,13 @@ public class Trans extends WebPage
             // TODO - lepe pomoci DataTable z wicket-extensions
             String html = "<table border='1'><thead><tr>\n";
             html += "<th>id</th><th>ip</th><th>con</th><th>event</th>";
-            html += "<th>id_tag</th><th>rfid</th><th>meter</th><th>trans_date</th>";
+            html += "<th>rfid</th><th>meter</th><th>trans_date</th>";
             html += "</tr></thead>\n";
             html += "<tbody>\n";
             
             // statement.executeUpdate("drop table if exists person");
             ResultSet rs = statement.executeQuery(
-                "select * from trans t left join dev d on t.dev_id = d.id"
+                "select t.*, d.ip, d.connector from trans t left join dev d on t.dev_id = d.id"
                 + (devId == null ? "" : " where d.id = " + devId));
             while (rs.next()) {
                 // read the result set
@@ -130,7 +131,6 @@ public class Trans extends WebPage
                 html += "<td>" + rs.getString("ip") + "</td>";
                 html += "<td>" + rs.getString("connector") + "</td>";
                 html += "<td>" + rs.getString("event") + "</td>";
-                html += "<td>" + rs.getString("id_tag") + "</td>";
                 html += "<td>" + rs.getString("rfid") + "</td>";
                 html += "<td>" + rs.getString("meter") + "</td>";
                 html += "<td>" + rs.getString("trans_date") + "</td>";
@@ -138,9 +138,9 @@ public class Trans extends WebPage
             }
             html += "</tbody></table>\n";
             
-            Label devList = new Label("transList", html);
-            devList.setEscapeModelStrings(false);
-            add(devList);
+            Label transList = new Label("transList", html);
+            transList.setEscapeModelStrings(false);
+            add(transList);
             
         } catch (Exception e) {
             // if the error message is "out of memory",

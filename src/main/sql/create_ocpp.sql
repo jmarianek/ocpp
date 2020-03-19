@@ -46,8 +46,7 @@ create table trans (
     id INTEGER PRIMARY KEY, -- pk
     dev_id INTEGER not null, -- fk dev.id
     event TEXT, -- hodnoty 'start'/'stop'
-    id_tag TEXT, -- viz zprava start/stop transaction
-    rfid TEXT, 
+    rfid TEXT, -- hodnoty id_tag z transakci
     meter TEXT, -- stav meridla
     trans_date TEXT, -- datum start/stop transakce 
     created_on TEXT, -- datum vytv. zaznamu

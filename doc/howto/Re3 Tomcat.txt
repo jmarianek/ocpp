@@ -1,0 +1,362 @@
+Od:	Josef Mariánek <josef.mariaanek@gmail.com>
+Komu:	Tomáš Kletzander <tomas.kletzander@gmail.com>
+Předmět:	Re: Tomcat
+Datum:	Thu, 19 Mar 2020 16:23:45 +0100
+
+	databáze SQLite3 příloha (ocpp.db)
+Ahoj Dane,
+
+v repo je dalsi verze vcetne war.
+Muzes pouzit promennou prostredi OCPP_DB_FILE, ale nezkousel jsem to (dal jsem
+to tam naslepo).
+Vzorova DB v priloze.
+
+End pointy:
+http://localhost:8080/ocpp-0.1/app/dev
+transakce zarizeni id=2:
+http://localhost:8080/ocpp-0.1/app/trans?dev_id=2
+
+Vic vecer.
+Je potreba dotahnout v CentralSystemServiceSkeleton.java persistenci, zatim je
+jen pro boot notif. Ale chodi vsechny zpravy, sleduj log tomcat.
+
+
+Pepa
+
+-------- Původní zpráva --------
+Od: Josef Mariánek <josef.mariaanek@gmail.com>
+Komu: Tomáš Kletzander <tomas.kletzander@gmail.com>
+Předmět: Re: Tomcat
+Datum: Thu, 19 Mar 2020 14:48:57 +0100
+
+S maven3 zatim nemam zkusenosti.
+Ten jar muzes stahnout pres https 
+
+https://repo1.maven.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.2/maven-install-plugin-2.2.jar
+
+a mozna kdyz ho das do lokalni .m2 repo tak to pujde.
+Dodam dnes dalsi verzi serveru.
+
+Pepa
+
+-------- Původní zpráva --------
+Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+Předmět: Re: Tomcat
+Datum: Tue, 17 Mar 2020 21:24:23 +0100
+
+Tak mi nepomohlo ani lokální repo. Stejně to stahuje
+http://repo1.maven.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.2/maven-install-plugin-2.2.jar
+a na tom to padá :( Nešlo by to upgradovat na Maven 3? Nemůžu s tím hnout :(
+
+út 17. 3. 2020 v 10:45 odesílatel Tomáš Kletzander <
+tomas.kletzander@gmail.com> napsal:
+
+> Čau, já se k tomu včera stejně nedostal, jel jsem pro tchýni. Ale stejně
+> mi vrtá hlavou proč to přes ty web sockety posílá jen boot... :P
+> 
+> út 17. 3. 2020 v 10:09 odesílatel Josef Mariánek <
+> josef.mariaanek@gmail.com> napsal:
+> 
+> > Tome dnes/zitra Ti ty dva end pointy /dev a /trans pocitam dodam. Pepa
+> > 
+> > -------- Původní zpráva --------
+> > Od: Josef Mariánek <josef.mariaanek@gmail.com>
+> > Komu: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > Předmět: Re: Tomcat
+> > Datum: Mon, 16 Mar 2020 15:29:08 +0100
+> > 
+> > Ahoj Tome,
+> > 
+> > zmena - jsem pretizenej jinou praci (online ucebnice).
+> > Ted se tomu nemuzu venovat.
+> > 
+> > Pepa
+> > 
+> > -------- Původní zpráva --------
+> > Od: Josef Mariánek <josef.mariaanek@gmail.com>
+> > Komu: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > Předmět: Re: Tomcat
+> > Datum: Mon, 16 Mar 2020 09:13:08 +0100
+> > 
+> > Ok, vecer Ti dodam dalsi verzi, jak jsem psal.
+> > Mne chodi boot notif, status a start transaction. Je tam zahajena jedna
+> > transakce z 6.3.,kterou je treba dokoncit.
+> > Pepa
+> > P.S.: Pres uschovnu posilam svoje .m2
+> > 
+> > 
+> > -------- Původní zpráva --------
+> > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > Předmět: Re: Tomcat
+> > Datum: Sun, 15 Mar 2020 22:03:45 +0100
+> > 
+> > Tak jsem zkusil připravit Node.Js server endpoint a dostávám jen boot
+> > zprávu, která umožní aktivovat nabíječku, ale už nedostávám autorizační
+> > zprávu když použiju rfid kartu. Divný.
+> > Navíc pokud nechám zapnutou rfid cache v nastavení, nabíječka se po
+> > použití
+> > karty v klidu spustí, ale neposílá žádný stavy v průběhu nabíjení. A když
+> > cache vypnu, nespustí se nabíjení vůbec.
+> > Takže kromě aktivace jsem se nikam nedostal. Musím počkat až pošleš novou
+> > verzi.
+> > 
+> > On Sun, Mar 15, 2020, 19:54 Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > wrote:
+> > 
+> > > Super, dík
+> > > 
+> > > ne 15. 3. 2020 v 19:50 odesílatel Josef Mariánek <
+> > > josef.mariaanek@gmail.com> napsal:
+> > > 
+> > > > Ve smeru z krabice do naseho OCPP serveru implementace viz
+> > > > axis2server.CentralSystemServiceSkeleton
+> > > > Popis tech zprav viz na github adresar doc/spec.
+> > > > Pepa
+> > > > 
+> > > > -------- Původní zpráva --------
+> > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > Předmět: Re: Tomcat
+> > > > Datum: Sun, 15 Mar 2020 19:40:46 +0100
+> > > > 
+> > > > Máš někde popis těch dat co ti chodí v tom SOAP a co se očekává za
+> > > > odpovědi
+> > > > prosímtě?
+> > > > 
+> > > > ne 15. 3. 2020 v 17:55 odesílatel Josef Mariánek <
+> > > > josef.mariaanek@gmail.com>
+> > > > napsal:
+> > > > 
+> > > > > Jo, cim dyl nad tim premyslim tak zjistuju ze mas pravdu. Dodelam
+> > > > 
+> > > > backend
+> > > > > do
+> > > > > stavu:
+> > > > > - DB i pres env. var,
+> > > > > - zprovozneni URL .../dev a .../trans tak, aby ses mohl napojit
+> > > > >   android klientem,
+> > > > > - tj. pak si muzes pro ucely ladeni neco nainsertovat do te DB.
+> > > > > 
+> > > > > Pokusim se co nejdriv.
+> > > > > 
+> > > > > Pepa
+> > > > > 
+> > > > > -------- Původní zpráva --------
+> > > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > > Předmět: Re: Tomcat
+> > > > > Datum: Sun, 15 Mar 2020 17:12:25 +0100
+> > > > > 
+> > > > > No na první rozjetí by se mi právě hodilo, kdybys ještě udělal tu
+> > > > 
+> > > > úpravu z
+> > > > > env variable, protože než najdu správný Maven co bude fungovat, tak
+> > 
+> > to
+> > > > > nerozběhám.
+> > > > > 
+> > > > > Ale samozřejmě pokud na to teď nemáš čas, tak se s tím budu ještě
+> > 
+> > prát.
+> > > > 
+> > > > Ale
+> > > > > jakmile to rozběhám, stejně by to byla první úprava kterou bych
+> > 
+> > udělal
+> > > > 
+> > > > ;-)
+> > > > > 
+> > > > > Mimochodem, přemlouvám Michala, aby dneska nešel do sauny a radši
+> > > > 
+> > > > otevřel
+> > > > > čekárnu, protože od zítřka bude nejspíš kompletní karanténa a už se
+> > > > > nesejdeme...
+> > > > > 
+> > > > > T.
+> > > > > 
+> > > > > On Sun, Mar 15, 2020, 17:02 Josef Mariánek <
+> > 
+> > josef.mariaanek@gmail.com>
+> > > > > wrote:
+> > > > > 
+> > > > > > Ten war stejne budes muset buildovat, v backendu jsou nedodelky a
+> > > > 
+> > > > muzes
+> > > > > 
+> > > > > do
+> > > > > > toho
+> > > > > > sahat a urychlit to. Nekam Ti to nahraju a dam vedet. Tu cestu k
+> > 
+> > DB
+> > > > > > promyslim.
+> > > > > > Pepa
+> > > > > > 
+> > > > > > -------- Původní zpráva --------
+> > > > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > > > Předmět: Re: Tomcat
+> > > > > > Datum: Sun, 15 Mar 2020 14:40:29 +0100
+> > > > > > 
+> > > > > > No možná by to byla cesta. A nebo přidej tu cestu na databázi do
+> > > > > > environment variable a já si ji jen nastavím a nemusím generovat
+> > 
+> > celej
+> > > > > 
+> > > > > war
+> > > > > > ;-)
+> > > > > > 
+> > > > > > On Sun, Mar 15, 2020, 13:35 Josef Mariánek <
+> > 
+> > josef.mariaanek@gmail.com
+> > > > > > wrote:
+> > > > > > 
+> > > > > > > Aha, myslel jsem ze mas problem jen s deploy, promin blbe ctu.
+> > > > > > > 
+> > > > > > > Ja mam tuto verzi:
+> > > > > > > 
+> > > > > > > $ mvn2 -V
+> > > > > > > Apache Maven 2.2.1 (r801777; 2009-08-06 21:16:01+0200)
+> > > > > > > Java version: 1.8.0_172
+> > > > > > > Java home: /opt/jdk1.8.0_172/jre
+> > > > > > > Default locale: cs_CZ, platform encoding: UTF-8
+> > > > > > > OS name: "linux" version: "3.10.0-1062.12.1.el7.x86_64" arch:
+> > > > 
+> > > > "amd64"
+> > > > > > > Family:
+> > > > > > > "unix"
+> > > > > > > 
+> > > > > > > a stahuje mne normalne.
+> > > > > > > Kdyztak v nejhorsim Ti muzu poslat ty zavislosti pres uschovnu
+> > 
+> > treba
+> > > > > > 
+> > > > > > (primo
+> > > > > > > jar).
+> > > > > > > 
+> > > > > > > Pepa
+> > > > > > > 
+> > > > > > > 
+> > > > > > > -------- Původní zpráva --------
+> > > > > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > > > > Předmět: Re: Tomcat
+> > > > > > > Datum: Sun, 15 Mar 2020 13:31:11 +0100
+> > > > > > > 
+> > > > > > > No dyk píšu, že ten Maven stahuje závislosti přes HTTP a
+> > 
+> > servery ho
+> > > > > > > rejectujou s 501, že už HTTP nepodporují. Opravený je to údajně
+> > 
+> > v
+> > > > > 
+> > > > > Mavenu
+> > > > > > 
+> > > > > > 3.
+> > > > > > > Nevím, jak přesvědčit dvojku, aby fungovala přes HTTPS... :(
+> > > > > > > 
+> > > > > > > ne 15. 3. 2020 v 13:24 odesílatel Josef Mariánek <
+> > > > > > > josef.mariaanek@gmail.com>
+> > > > > > > napsal:
+> > > > > > > 
+> > > > > > > > Ahoj, jestlis stahnul Maven 2.2.1 a je tam prikaz mvn, tak je
+> > 
+> > to
+> > > > 
+> > > > ono
+> > > > > > 
+> > > > > > (ja
+> > > > > > > > mam na
+> > > > > > > > linux mvn2). Tj. pouzijes v adresari s pom.xml
+> > > > > > > > 
+> > > > > > > > $ mvn package
+> > > > > > > > 
+> > > > > > > > pro vyrobu waru, kterej pak nahrajes do webapps.
+> > > > > > > > 
+> > > > > > > > Pepa
+> > > > > > > > 
+> > > > > > > > -------- Původní zpráva --------
+> > > > > > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > > > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > > > > > Předmět: Re: Tomcat
+> > > > > > > > Datum: Sun, 15 Mar 2020 12:16:46 +0100
+> > > > > > > > 
+> > > > > > > > Našel jsem v archivu nějakou verzi Maven 2.2.1, ale není tam
+> > 
+> > mvn2,
+> > > > > 
+> > > > > ale
+> > > > > > > 
+> > > > > > > jen
+> > > > > > > > mvn. Navíc pokud zavolám mvn deploy, stahují se závislosti
+> > 
+> > přes
+> > > > 
+> > > > HTTP
+> > > > > 
+> > > > > a
+> > > > > > > > servery, které už vyžadují HTTPS pak vrací HTTP 501, takže mi
+> > > > 
+> > > > deploy
+> > > > > > > 
+> > > > > > > skončí
+> > > > > > > > s chybou. Poraď mi kde vezmu mvn2. Na oficiální download
+> > 
+> > stránce
+> > > > 
+> > > > je
+> > > > > 
+> > > > > jen
+> > > > > > > > verze 3 a odkaz na archiv ze kterého jsem to stahoval já.
+> > > > > > > > 
+> > > > > > > > ne 15. 3. 2020 v 12:08 odesílatel Josef Mariánek <
+> > > > > > > > josef.mariaanek@gmail.com>
+> > > > > > > > napsal:
+> > > > > > > > 
+> > > > > > > > > Ahoj Tome,
+> > > > > > > > > zkusim sepsat nejakou dokumentaci...
+> > > > > > > > > Zatim pis dotazy emailem.
+> > > > > > > > > Pepa
+> > > > > > > > > 
+> > > > > > > > > -------- Původní zpráva --------
+> > > > > > > > > Od: Tomáš Kletzander <tomas.kletzander@gmail.com>
+> > > > > > > > > Komu: Josef Mariánek <josef.mariaanek@gmail.com>
+> > > > > > > > > Předmět: Tomcat
+> > > > > > > > > Datum: Sun, 15 Mar 2020 09:19:43 +0100
+> > > > > > > > > 
+> > > > > > > > > Ahoj Pepo, Tomcat mám rozchozený, WAR soubor jsem
+> > 
+> > nakopíroval do
+> > > > > > > 
+> > > > > > > Tomcatu,
+> > > > > > > > > ten si ho rozbalil, ale když do url zadám /app/dev tak
+> > 
+> > dostávám
+> > > > > 
+> > > > > HTTP
+> > > > > > > 
+> > > > > > > 404.
+> > > > > > > > > Ještě jsem to nerozchodil s nějakým logováním, tak na tom
+> > > > 
+> > > > pracuju,
+> > > > > > 
+> > > > > > ale
+> > > > > > > > > kdyby tě náhodou napadlo, co může být špatně nebo chybět...
+> > > > > > > > > 
+> > > > > > > > > Dík,
+> > > > > > > > > *T.*
+> > > > > > > > > 
+> > > > > > > > > 
+> > > > > > > > 
+> > > > > > > > 
+> > > > > > > 
+> > > > > > > 
+> > > > > > 
+> > > > > > 
+> > > > > 
+> > > > > 
+> > > > 
+> > > > 
+> > 
+> > 
