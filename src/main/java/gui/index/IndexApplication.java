@@ -9,7 +9,7 @@ package gui.index;
  * 2020-03-13 - jmarianek - vychozi verze;
  * 2020-03-14 - jmarianek - url mount /about, /dev;
  *                        - session;
- * 
+ * 2020-03-19 - jmarianek - mount /ocpp-0.1/app/trans;
  */
 
 import org.apache.commons.logging.Log;
@@ -17,6 +17,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 import gui.dev.Devices;
+import gui.trans.Trans;
 import wicket.ISessionFactory;
 import wicket.Session;
 import wicket.protocol.http.WebApplication;
@@ -80,6 +81,9 @@ public class IndexApplication extends WebApplication
 
         // mount /ocpp-0.1/app/dev -> gui.dev.Devices
         mount("/dev", new QueryStringUrlCodingStrategy("/dev", Devices.class));
+        
+        // mount /ocpp-0.1/app/trans -> gui.dev.Trans
+        mount("/trans", new QueryStringUrlCodingStrategy("/trans", Trans.class));
     }
 
 	

@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>OCPP Web Server</title>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"/>
+  
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+
 <style>
 button {
     border-radius: 12px;
@@ -13,10 +20,17 @@ button {
 </style>
 
 <script>
+
 function notImpl()
 {
 	alert("Není implementováno.");
 }
+
+$(document).ready(function() {
+    //console.log( "ready!" );
+    $("table").DataTable();
+});
+
 </script>
 </head>
 

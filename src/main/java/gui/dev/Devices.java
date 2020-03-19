@@ -27,7 +27,7 @@ import gui.index.IndexSession;
 
 
 /**
- * Basic bookmarkable about page.
+ * Basic bookmarkable page.
  * 
  */
 public class Devices extends WebPage
@@ -87,10 +87,11 @@ public class Devices extends WebPage
             statement.setQueryTimeout(30); // set timeout to 30 sec.
 
             // TODO - lepe pomoci DataTable z wicket-extensions
-            String html = "<table border='1'><tr>\n";
+            String html = "<table border='1'><thead><tr>\n";
             html += "<th>id</th><th>ip</th><th>con</th><th>model</th>";
             html += "<th>vendor</th><th>status</th><th>updated</th>";
-            html += "</tr>\n";
+            html += "</tr></thead>\n";
+            html += "<tbody>\n";
             
             // statement.executeUpdate("drop table if exists person");
             ResultSet rs = statement.executeQuery("select * from dev");
@@ -107,7 +108,7 @@ public class Devices extends WebPage
                 html += "<td>" + rs.getString("updated_on") + "</td>";
                 html += "</tr>\n";
             }
-            html += "</table>\n";
+            html += "</tbody></table>\n";
             
             Label devList = new Label("devList", html);
             devList.setEscapeModelStrings(false);
