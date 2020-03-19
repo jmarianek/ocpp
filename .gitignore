@@ -1,0 +1,6 @@
+syntax: glob
+
+syntax: regexp
+^target/classes
+^target/ocpp-0.1
+^target/maven-archiver
