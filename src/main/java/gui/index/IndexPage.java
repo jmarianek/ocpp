@@ -31,7 +31,7 @@ public class IndexPage extends WebPage
     /**
      * Verze aplikace.
      */
-    private final String VER = "0.1.1 2020-03-19";
+    private final String VER = "0.1.2 2020-03-21";
     
     /**
      * Zakaznik, pro ktereho je licence vystavena.

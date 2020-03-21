@@ -24,6 +24,7 @@ import java.sql.Statement;
  * 2020-03-14 - jmarianek - persistence bootNotification;
  * 2020-03-19 - jmarianek - getDB_FILE();
  *                        - oprava update zazn. v bootNotifivation();
+ * 2020-03-21 - jmarianek - impl. meterValues(), dataTransfer() - bez persistence;
  * 
  *                        TODO: persistence vsech zprav
  *                        TODO: odsranit dupl. def DB_FILE (viz IndexSession
@@ -369,26 +370,78 @@ public class CentralSystemServiceSkeleton {
      * @param meterValuesRequest
      */
 
-    public ocpp.MeterValuesResponseDocument meterValues(ocpp.MeterValuesRequestDocument meterValuesRequest) {
-        // TODO : fill this with the necessary business logic
-        log.info("meterValues()");
+    public ocpp.MeterValuesResponseDocument meterValues(ocpp.MeterValuesRequestDocument meterValuesRequest)
+    {
+        /*
         throw new java.lang.UnsupportedOperationException(
                 "Please implement " + this.getClass().getName() + "#meterValues");
+        */
+        
+        MeterValuesRequestImpl req = (MeterValuesRequestImpl) meterValuesRequest.getMeterValuesRequest();
+
+        String ipAddr = getIpAddr();
+
+        log.info("meterValues("
+            + req.getConnectorId() + ", "
+            + req.getMeterValueArray()
+            + ") from " + ipAddr);
+
+        // TODO - persistence 
+
+        ocpp.MeterValuesResponseDocument respDoc = 
+                ocpp.MeterValuesResponseDocument.Factory.newInstance();
+        ocpp.MeterValuesResponse resp = 
+                ocpp.MeterValuesResponse.Factory.newInstance();
+                
+        respDoc.setMeterValuesResponse(resp);
+        
+        return respDoc;
+
     }
 
+    
+    
+    
+    
     /**
      * Auto generated method signature
      * 
      * @param dataTransferRequest
      */
 
-    public ocpp.DataTransferResponseDocument dataTransfer(ocpp.DataTransferRequestDocument dataTransferRequest) {
-        // TODO : fill this with the necessary business logic
-        log.info("dataTransfer()");
+    public ocpp.DataTransferResponseDocument dataTransfer(ocpp.DataTransferRequestDocument dataTransferRequest)
+    {
+        /*
         throw new java.lang.UnsupportedOperationException(
                 "Please implement " + this.getClass().getName() + "#dataTransfer");
+        */
+        
+        DataTransferRequestImpl req = (DataTransferRequestImpl) dataTransferRequest.getDataTransferRequest();
+
+        String ipAddr = getIpAddr();
+
+        log.info("dataTransfer("
+            + req.getVendorId()
+            + ") from " + ipAddr);
+
+        // TODO - persistence 
+
+        ocpp.DataTransferResponseDocument respDoc = 
+                ocpp.DataTransferResponseDocument.Factory.newInstance();
+        ocpp.DataTransferResponse resp = 
+                ocpp.DataTransferResponse.Factory.newInstance();
+        ocpp.DataTransferStatus status =
+                ocpp.DataTransferStatus.Factory.newInstance();
+        resp.setStatus(status.ACCEPTED);
+                
+        respDoc.setDataTransferResponse(resp);
+        
+        return respDoc;
     }
 
+    
+    
+    
     /**
      * Auto generated method signature
      * 
