@@ -24,7 +24,9 @@ import java.sql.Statement;
  * 2020-03-14 - jmarianek - persistence bootNotification;
  * 2020-03-19 - jmarianek - getDB_FILE();
  *                        - oprava update zazn. v bootNotifivation();
- * 2020-03-21 - jmarianek - impl. meterValues(), dataTransfer() - bez persistence;
+ * 2020-03-21 - jmarianek - impl. meterValues(), dataTransfer(), authorize() -
+ *                          bez persistence;
+ *                        - oprava retc ve stopTransaction();
  * 
  *                        TODO: persistence vsech zprav
  *                        TODO: odsranit dupl. def DB_FILE (viz IndexSession
@@ -126,7 +128,9 @@ public class CentralSystemServiceSkeleton {
             ocpp.StopTransactionResponse.Factory.newInstance();
         
         ocpp.IdTagInfo iti = ocpp.IdTagInfo.Factory.newInstance();
-        iti.setStatus(ocpp.AuthorizationStatus.ACCEPTED); // optional
+        iti.setStatus(ocpp.AuthorizationStatus.ACCEPTED); 
+        
+        //resp.setIdTagInfo(iti); // optional
         
         // TODO: persist
         
@@ -181,12 +185,37 @@ public class CentralSystemServiceSkeleton {
      * 
      * @param authorizeRequest
      */
-    public ocpp.AuthorizeResponseDocument authorize(ocpp.AuthorizeRequestDocument authorizeRequest)
+    public ocpp.AuthorizeResponseDocument authorize(ocpp.AuthorizeRequestDocument authorizeRequest)    
     {
-        // TODO : fill this with the necessary business logic
-        log.info("authorize()");
+        /*
         throw new java.lang.UnsupportedOperationException(
                 "Please implement " + this.getClass().getName() + "#authorize");
+        */
+        
+        AuthorizeRequestImpl req = (AuthorizeRequestImpl) authorizeRequest.getAuthorizeRequest();
+
+        String ipAddr = getIpAddr();
+
+        log.info("authorize("
+            + req.getIdTag() // rfid identifikace
+            + ") from " + ipAddr);
+
+        // TODO - persistence 
+
+        ocpp.AuthorizeResponseDocument respDoc = 
+                ocpp.AuthorizeResponseDocument.Factory.newInstance();
+        ocpp.AuthorizeResponse resp = 
+                ocpp.AuthorizeResponse.Factory.newInstance();
+
+        ocpp.IdTagInfo iti = ocpp.IdTagInfo.Factory.newInstance();
+        iti.setStatus(ocpp.AuthorizationStatus.ACCEPTED);
+        
+        resp.setIdTagInfo(iti);
+
+        respDoc.setAuthorizeResponse(resp);
+        
+        return respDoc;
+        
     }
 
     
@@ -224,6 +253,8 @@ public class CentralSystemServiceSkeleton {
         
         ocpp.IdTagInfo iti = ocpp.IdTagInfo.Factory.newInstance();
         iti.setStatus(ocpp.AuthorizationStatus.ACCEPTED);
+        
+        resp.setIdTagInfo(iti);
         resp.setTransactionId(1); // TODO - ze sekvence
         
         // TODO: persist
